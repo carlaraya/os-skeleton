@@ -23,7 +23,8 @@ all: $(IMG_FILE)
 # Make image file using linked ELF
 $(IMG_FILE): $(ELF_FILE)
 	cp '$<' '$(BOOT_PATH)'
-	grub-mkrescue -o '$@' iso
+	#grub-mkrescue -o '$@' iso
+	grub-mkrescue -d /usr/lib/grub/i386-pc/ -o '$@' iso
 
 # Link .o files
 $(ELF_FILE): $(OBJECTS)

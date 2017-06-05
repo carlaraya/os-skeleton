@@ -5,5 +5,5 @@ struct multiboot;
 
 int main(struct multiboot *mboot_ptr) {
   // All our initialisation calls will go in here.
-  return 0x69420911;
+  return 0xDEADBABA;
 }

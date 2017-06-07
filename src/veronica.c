@@ -2,21 +2,23 @@
 
 #include "veronica.h"
 
-void *memcpy(void *dest, const void *src, size_t n) {
-    char *src_ch = (char *) src;
-    char *dest_ch = (char *) dest;
-    for (size_t i = 0; i < n; i++) dest_ch[i] = src_ch[i];
-    return dest;
+// Copy len bytes from src to dest.
+void memcpy(u8int *dest, const u8int *src, u32int len)
+{
+    const u8int *sp = (const u8int *)src;
+    u8int *dp = (u8int *)dest;
+    for(; len != 0; len--) *dp++ = *sp++;
 }
 
-void *memset(void *s, int c, size_t n) {
-    char *s_ch = (char *) s, *c_ch = (char *) &c;
-    for (size_t i = 0; i < n; i++) s_ch[i] = c_ch[i];
-    return s;
+// Write len copies of val into dest.
+void memset(u8int *dest, u8int val, u32int len)
+{
+    u8int *temp = (u8int *)dest;
+    for ( ; len != 0; len--) *temp++ = val;
 }
 
-size_t strlen(const char *s) {
-    size_t i;
+unsigned int strlen(const char *s) {
+    unsigned int i;
     for (i = 0; s[i]; i++);
     return i;
 }

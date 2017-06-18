@@ -3,22 +3,35 @@
 #include "monitor.h"
 #include "descriptor_tables.h"
 #include "timer.h"
+#include "paging.h"
 struct multiboot;
 
 int main(struct multiboot *mboot_ptr) {
     init_descriptor_tables();
     asm volatile("sti"); // enable hardware interrupts
-
-    int x;
     monitor_clear();
-    monitor_write("Ang dali ng MP!\nlol\n");
-    monitor_write_hex(0xDEADBEEF);
-    monitor_write("\n");
-    monitor_write_dec_s(-12);
-    monitor_write("\n");
-    monitor_write("\n");
-    asm volatile("int $0x0 ");
-    monitor_write("sldfj\n");
+    monitor_write("Hello, world!\n");
+
+    initialise_paging();
+    monitor_write("Hello, paging world!\n");
+
+    u32int *ptr = (u32int*)0xA0000000;
+    u32int do_page_fault = *ptr;
+
+    return 0;
+    /*asm volatile("int $0x0 ");
     init_timer(50);
+    */
+
+    /*
+    int i;
+    for (i = 0; i < 10000; i++) {
+        monitor_write_dec(i);
+        monitor_write("\n");
+        if (i == 6969) {
+            PANIC("FUCK FUCK I'M PANICKINGGGGG");
+        }
+    }
+    */
     return 0;
 }

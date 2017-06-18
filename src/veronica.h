@@ -1,4 +1,6 @@
 // pls dont judge ser huan chou
+//
+// veronica.h -- Define typedefs and some functions from the standard c libraries
 
 #ifndef VERONICA_H
 #define VERONICA_H

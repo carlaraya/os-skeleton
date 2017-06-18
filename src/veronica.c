@@ -1,4 +1,6 @@
 // pls dont judge ser huan chou
+//
+// veronica.c -- Define some functions from the standard c libraries
 
 #include "veronica.h"
 

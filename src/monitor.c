@@ -111,13 +111,14 @@ void monitor_clear() {
 }
 
 // Outputs a null-terminated ASCII string to the monitor.
-void monitor_write(char *c) {
+void monitor_write(const char *c) {
    int i = 0;
    while (c[i]) {
        monitor_put(c[i++]);
    }
 }
 
+// my implementation is better than james molloy's! LEL
 void monitor_write_hex(u32int n) {
     for (int i = 7; i >= 0; i--) {
         int x = n >> (4 * i) & 0xF;
@@ -126,6 +127,7 @@ void monitor_write_hex(u32int n) {
     }
 }
 
+// my implementation is better than james molloy's! LEL
 void monitor_write_dec(u32int n) {
     if (n == 0) {
         monitor_put('0');

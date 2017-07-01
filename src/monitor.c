@@ -118,7 +118,7 @@ void monitor_write(const char *c) {
    }
 }
 
-// my implementation is better than james molloy's! LEL
+// my implementation is better than james molloy's jsyk
 void monitor_write_hex(u32int n) {
     for (int i = 7; i >= 0; i--) {
         int x = n >> (4 * i) & 0xF;
@@ -127,7 +127,7 @@ void monitor_write_hex(u32int n) {
     }
 }
 
-// my implementation is better than james molloy's! LEL
+// my implementation is better than james molloy's jsyk
 void monitor_write_dec(u32int n) {
     if (n == 0) {
         monitor_put('0');

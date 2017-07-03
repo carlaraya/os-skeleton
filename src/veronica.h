@@ -19,5 +19,8 @@ void memset(u8int *dest, u8int val, u32int len);
 
 unsigned int strlen(const char *s);
 int strcmp(const char *s1, const char *s2);
+char *strcat(char *dest, const char *src);
+char *strcpy(char *dest, const char *src);
+
 
 #endif

@@ -30,3 +30,22 @@ int strcmp(const char *s1, const char *s2) {
     for (i = 0; s1[i] == s2[i] && s1[i] && s2[i]; i++);
     return s1[i] - s2[i];
 }
+
+char *strcat(char *dest, const char *src) {
+    int i = strlen(dest);
+    int j;
+    for (j = 0; src[j]; j++, i++) {
+        dest[i] = src[j];
+    }
+    dest[i] = src[j];
+    return dest;
+}
+
+char *strcpy(char *dest, const char *src) {
+    int i;
+    for (i = 0; src[i]; i++) {
+        dest[i] = src[i];
+    }
+    dest[i] = '\0';
+    return dest;
+}

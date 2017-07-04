@@ -1,0 +1,4 @@
+main.elf
+main.img
+*.o
+*.out

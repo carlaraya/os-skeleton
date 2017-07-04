@@ -44,7 +44,7 @@ boot.o: boot.asm
 
 # Delete compiled objects
 clean:
-	rm -f $(OBJECTS) '$(SRC_PATH)'/*.o '$(BOOT_PATH)'/*.elf '$(ELF_FILE)' '$(IMG_FILE)'
+	rm -f $(OBJECTS) '$(SRC_PATH)'/*.o '$(BOOT_PATH)'/*.elf '$(ELF_FILE)' '$(IMG_FILE)' *.out
 
 # Run QEMU using image
 # Access monitor via "telnet localhost 14062"

@@ -32,6 +32,7 @@ section .text
 [EXTERN main]
 
 start:
+    push esp
     ; Load multiboot information:
     push    ebx
     cli

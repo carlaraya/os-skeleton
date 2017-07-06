@@ -22,21 +22,18 @@ u32int kmalloc_int(u32int sz, int align, u32int *phys);
 /**
   Size information for a hole/block
 **/
-typedef struct
-{
+typedef struct {
    u32int magic;   // Magic number, used for error checking and identification.
    u8int is_hole;   // 1 if this is a hole. 0 if this is a block.
    u32int size;    // size of the block, including the end footer.
 } header_t;
 
-typedef struct
-{
+typedef struct {
    u32int magic;     // Magic number, same as in header_t.
    header_t *header; // Pointer to the block header.
 } footer_t;
 
-typedef struct
-{
+typedef struct {
    ordered_array_t index;
    u32int start_address; // The start of our allocated space.
    u32int end_address;   // The end of our allocated space. May be expanded up to max_address.

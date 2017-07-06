@@ -25,7 +25,7 @@ u32int kmalloc_int(u32int sz, int align, u32int *phys) {
         void *addr = alloc(sz, (u8int)align, kheap);
         if (phys != 0) {
             page_t *page = get_page((u32int)addr, 0, kernel_directory);
-            *phys = page->frame*0x1000 + (u32int)addr&0xFFF;
+            *phys = page->frame*0x1000 + ((u32int)addr&0xFFF);
         }
         return (u32int)addr;
     } else if (align == 1 && (placement_address & 0xFFFFF000)) { // If the address is not already page-aligned
@@ -41,8 +41,7 @@ u32int kmalloc_int(u32int sz, int align, u32int *phys) {
   return tmp;
 }
 
-void kfree(void *p)
-{
+void kfree(void *p) {
    free(p, kheap);
 }
 

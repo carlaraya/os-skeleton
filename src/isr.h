@@ -24,8 +24,7 @@
 #define IRQ14 46
 #define IRQ15 47
 
-typedef struct registers
-{
+typedef struct registers {
    u32int ds;                  // Data segment selector
    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; // Pushed by pusha.
    u32int int_no, err_code;    // Interrupt number and error code (if applicable)

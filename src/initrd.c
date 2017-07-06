@@ -2,6 +2,7 @@
 //             Written for JamesM's kernel development tutorials.
 
 #include "initrd.h"
+#include "kheap.h"
 
 initrd_header_t *initrd_header;     // The header.
 initrd_file_header_t *file_headers; // The list of file headers.
@@ -22,8 +23,7 @@ static u32int initrd_read(fs_node_t *node, u32int offset, u32int size, u8int *bu
     return size;
 }
 
-static struct dirent *initrd_readdir(fs_node_t *node, u32int index)
-{
+static struct dirent *initrd_readdir(fs_node_t *node, u32int index) {
     if (node == initrd_root && index == 0) {
       strcpy(dirent.name, "dev");
       dirent.name[3] = 0;

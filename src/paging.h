@@ -14,13 +14,11 @@ typedef struct page {
    u32int frame      : 20;  // Frame address (shifted right 12 bits)
 } page_t;
 
-typedef struct page_table
-{
+typedef struct page_table {
    page_t pages[1024];
 } page_table_t;
 
-typedef struct page_directory
-{
+typedef struct page_directory {
    /**
       Array of pointers to pagetables.
    **/
@@ -65,5 +63,7 @@ page_t *get_page(u32int address, int make, page_directory_t *dir);
   Handler for page faults.
 **/
 void page_fault(registers_t regs);
+
+page_directory_t *clone_directory(page_directory_t *src);
 
 #endif

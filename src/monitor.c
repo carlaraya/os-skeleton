@@ -40,9 +40,11 @@ static void scroll() {
 
 // Writes a single character out to the screen.
 void monitor_put(char c) {
+    monitor_put_color(c, 0, 15);
+}
+
+void monitor_put_color(char c, u8int backColour, u8int foreColour) {
    // The background colour is black (0), the foreground is white (15).
-   u8int backColour = 0;
-   u8int foreColour = 15;
 
    // The attribute byte is made up of two nibbles - the lower being the
    // foreground colour, and the upper the background colour.

@@ -46,7 +46,7 @@ int main(struct multiboot *mboot_ptr, u32int initial_stack) {
     fs_root = initialise_initrd(initrd_location);
 
     // kek
-    //cancer_intro();
+    cancer_intro();
     real_intro();
 
     // Create a new process in a new address space which is a clone of this.
@@ -82,7 +82,6 @@ int main(struct multiboot *mboot_ptr, u32int initial_stack) {
         }
         i++;
     }
-    monitor_write("\n");
 
     asm volatile("sti");
 
